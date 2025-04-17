@@ -1,29 +1,29 @@
+// Import from react
+import { useState, useEffect } from "react";
+
 // Import SWR for api interactions
 import { mutate } from "swr";
+
 // Import Link for navigation
 import { Link } from "react-router-dom";
 
-// Import style
+// Import styles
 import { DivShowCatsContainerS } from "../Styles/ShowCatsP.style";
-
-// Import components
-import Header from "../Layout/HeaderL";
-import Figure from "../Components/FigureC";
-import Button from "../Components/ButtonC";
-import Loader from "../Components/LoaderC";
-import ErrorMessage from "../Components/ErrorMessage";
-import Pagination from "../Components/Pagination";
 
 // Import types
 import { CatT } from "../Types/CatT";
+
+// Import components
+import Figure from "../Components/FigureC";
+import Button from "../Components/ButtonC";
+import Loader from "../Components/LoaderC";
+import ErrorMessage from "../Components/ErrorMessageC";
+import Pagination from "../Components/PaginationC";
 
 // Import custom hooks
 import UseIsScreenWidthLessOrEqual from "../Hooks/UseIsScreenWidthLessOrEqual";
 import UseGetCats from "../Hooks/UseGetCats";
 import UseGetCatsCount from "../Hooks/UseGetCountCat";
-
-// Import from react
-import { useState, useEffect } from "react";
 
 const ShowCatsP = () => {
   // State to manage the current pagination
@@ -55,9 +55,6 @@ const ShowCatsP = () => {
   // If everything is fine
   return (
     <>
-      {/* Header of the site */}
-      <Header />
-
       {/* Main container for the cats cards */}
       <DivShowCatsContainerS>
         {cats.map((cat: CatT, index: number) => (

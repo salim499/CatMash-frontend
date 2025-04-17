@@ -17,7 +17,7 @@ const Header = () => {
         <ImgTitleS src="/main-logo.svg" />
 
         {/* Navigation bar */}
-        <NavS>
+        <NavS style={{ backgroundColor: "rgba(250,250,250,1)" }}>
           {/* Link to the "Show Cats" ranking page */}
           <Link to={"/show-cats"}>
             <LinkS>Classement des chats</LinkS>
