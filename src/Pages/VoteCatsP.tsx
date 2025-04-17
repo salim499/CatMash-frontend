@@ -69,6 +69,7 @@ const VoteCatsP = () => {
 
   // Function to handle voting for a cat (left or right)
   const handleVoteCat = async (direction: string) => {
+    console.log("aaaaaaaaaaaaaaaaaaaa");
     if (catLeft && catRight) {
       // case left
       if (direction === left) {
@@ -89,23 +90,21 @@ const VoteCatsP = () => {
         // case right
       } else if (direction === right) {
         // Increment score for the right cat
-        await axios.put(`http://localhost:5000/cats/${catRight.id}/score`, {
-          score: catRight.score + 1,
-        });
+        await axios.put(
+          `${process.env.REACT_APP_API_URL}/cats/${catRight.id}/score`,
+          {
+            score: catRight.score + 1,
+          }
+        );
         // Fetch the updated cat data
         const updatedCat = await axios.get(
-          `http://localhost:5000/cats/${catRight.id}`
+          `${process.env.REACT_APP_API_URL}/cats/${catRight.id}`
         );
         // Update the state with the new cat data
         setCatRight(updatedCat.data);
         // Clear the left cat after voting
         setCatLeft(null);
       }
-      // Fetch another random cat (not voted on)
-      await mutate("catrandom", {
-        ids: excludeIds,
-        limit: 1,
-      });
     }
   };
   // If data is still loading
