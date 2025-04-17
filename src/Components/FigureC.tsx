@@ -70,9 +70,13 @@ const Figure = (props: FigureT) => {
               : ""
           }
           height={
-            !props.isScreenWidthLessOrEqual && props.index === 0
+            !props.isScreenWidthLessOrEqual &&
+            props.page === 1 &&
+            props.index === 0
               ? "375px"
-              : !props.isScreenWidthLessOrEqual && props.index === 1
+              : !props.isScreenWidthLessOrEqual &&
+                props.page === 1 &&
+                props.index === 1
               ? "350px"
               : ""
           }
